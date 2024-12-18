@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhifama's Birthday Blessing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatText {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #1a365d, #2d3748, #4a5568, #2b6cb0);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .floating-text {
+            animation: floatText 3s ease-in-out infinite;
+        }
+
+        .scroll-text {
+            animation: scroll 60s linear infinite;
+        }
+
+        .scripture-container {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .custom-font {
+            font-family: 'Cinzel', serif;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="max-w-4xl mx-auto text-center space-y-8">
+        <h1 class="custom-font text-5xl md:text-7xl text-white font-bold mb-8 floating-text">
+            Blessed Birthday
+        </h1>
+
+        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-2xl">
+            <p class="text-2xl md:text-3xl text-white mb-6 custom-font">
+                "May the God of Abraham, Isaac, and Jacob bless your 19th year"
+            </p>
+            
+            <p class="text-xl text-blue-200 mb-8">
+                Like Ephraim and Manasseh were blessed, “By you Israel will pronounce blessings, saying,
+                ‘God make you as Ephraim and as Manasseh.’”
+            </p>
+        </div>
+
+        <div class="scripture-container w-full md:w-3/4 mx-auto p-4">
+            <div class="scroll-text text-white">
+                <div class="space-y-4 text-left">
+                    <p class="text-lg">"The God before whom my fathers Abraham and Isaac walked, the God who has been my shepherd all my life long to this day, the angel who has redeemed me from all evil, bless the boys; and in them let my name be carried on, and the name of my fathers Abraham and Isaac; and let them grow into a multitude in the midst of the earth."</p>
+                    <p class="text-lg">- Genesis 48:15-16</p>
+                    <!-- Full scripture text here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 space-x-4">
+            <span class="inline-block text-4xl floating-text" style="animation-delay: 0s">✨</span>
+            <span class="inline-block text-4xl floating-text" style="animation-delay: 0.3s">🙏</span>
+            <span class="inline-block text-4xl floating-text" style="animation-delay: 0.6s">💫</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const createStar = () => {
+                const star = document.createElement('div');
+                star.innerHTML = '✨';
+                star.style.position = 'fixed';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.opacity = '0';
+                star.style.transition = 'opacity 2s';
+                star.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                star.style.color = 'white';
+                document.body.appendChild(star);
+
+                setTimeout(() => {
+                    star.style.opacity = '0.8';
+                }, 100);
+
+                setTimeout(() => {
+                    star.style.opacity = '0';
+                    setTimeout(() => {
+                        star.remove();
+                    }, 2000);
+                }, 3000);
+            };
+
+            setInterval(createStar, 1000);
+        });
+    </script>
+</body>
+</html>
